@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriPredict Commodities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/commodities.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <img class="logo" src="{{ url_for('static', filename='images/whitelogopng.png') }}" alt="logo">
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('commodities') }}">Commodities</a>
+                <a href="{{ url_for('supply') }}">Supply Chain</a>
+                <a href="{{ url_for('disaster') }}">Disaster Prediction</a>
+            </div>
+            <div class="menu">
+                <div class="item">
+                    <a href="#" class="link">
+                        <i class="fa fa-bars" aria-hidden="true" id="fa-bars"></i>
+                    </a>
+                    <div class="submenu">
+                        <div class="submenu-item"><a href="{{ url_for('my_account') }}" style="text-decoration: none;color: black;">My Account</a></div>
+                        <div class="submenu-item" id="scrollToFooterBtn" style="color: black;">Contact Us</div>
+                        <div class="submenu-item"><a href="{{ url_for('login') }}" style="text-decoration: none;color: black;">Logout</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container" style="background: #d3d2d2">
+        <div class="container">
+            <h1 class="text-center">Commodity Price Prediction</h1>
+
+            <!-- Dropdowns for Commodity and Center -->
+            <div class="row mb-3 align-items-center">
+                <div class="col-md-4">
+                    <label for="commodity">Select Commodity</label>
+                    <select id="commodity" class="form-select"></select>
+                </div>
+                <div class="col-md-4">
+                    <label for="center">Select Center</label>
+                    <select id="center" class="form-select"></select>
+                </div>
+                <div class="col-md-4 text-center">
+                    <button id="getPrediction" class="btn btn-primary">Get Prediction</button>
+                    <button id="getNationalPrediction" class="btn btn-secondary">Get Historical graph</button>
+                </div>
+            </div>
+
+             <div class="row mt-4" style="height:500px;">
+                <div class="col-md-6">
+                    <!-- Prediction Chart -->
+                    <img id="predictionChart" src="" style="max-width: auto; height: 500px;">
+                </div>
+
+                <!-- Price Predictions Section -->
+                <div class="col-md-6">
+                    <div class="price-box" style="border: 2px solid black; background-color: #a2f891; padding: 20px;">
+                        <p><strong>Current Price:</strong> <span id="currentPrice"></span> ₹/Kg</p>
+                        <p><strong>Predicted Price:</strong> <span id="predictedPrice"></span> ₹/Kg</p>
+                        <div class="prediction-buttons">
+                            <button class="btn btn-outline-success" id="oneMonthBtn">1 Month</button>
+                            <button class="btn btn-outline-success" id="threeMonthsBtn">3 Months</button>
+                            <button class="btn btn-outline-success" id="sixMonthsBtn">6 Months</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- National Average Prediction Graph Section -->
+             <div class="row mt-4" style="height:600px;">
+                <div class="col-md-12 text-center">
+                    <h2>National Average Historical Graph</h2>
+                    <!-- National Average Prediction Graph -->
+                    <img id="nationalPredictionChart" src="" style="max-width: auto; height: 500px;margin-right: 600px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <center><h1>Contact Us</h1></center>
+        <div class="footer-content">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form>
+                        <label for="name">Your Name:</label><br>
+                        <input type="text" id="name" name="name" required><br><br>
+
+                        <label for="email">Your Email:</label><br>
+                        <input type="email" id="email" name="email" required><br><br>
+
+                        <label for="message">Your Message:</label><br>
+                        <textarea id="message" name="message" required></textarea>
+
+                        <div class="recaptcha">
+                            <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                        </div>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-info">
+                <ul>
+                    <li><i class="fa fa-envelope"></i> Agripredict@gmail.com</li>
+                    <li><i class="fa fa-phone"></i> +123 356-684-693</li>
+                    <li><i class="fa fa-map-marker"></i> Mysuru, Karnataka, India</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="/" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2024 Green Dashboard. All rights reserved.</p>
+    </footer>
+
+    <script>
+    const commoditySelect = document.getElementById('commodity');
+    const centerSelect = document.getElementById('center');
+
+    // Populate commodity and center dropdowns
+    const commodities = ["Rice", "Wheat", "Gram Dal", "Moong Dal", "Urad Dal", "Groundnut Oil", "Mustard Oil", "Soya Oil", "Onion", "Potato", "Sugar"];
+    commodities.forEach(commodity => {
+        const option = document.createElement('option');
+        option.textContent = commodity;
+        commoditySelect.appendChild(option);
+    });
+
+      const centers = [
+            "Centre_1", "Centre_2", "Centre_3", "Centre_4", "Centre_5", "Centre_6", "Centre_7", "Centre_8", "Centre_9", "Centre_10",
+            "Centre_11", "Centre_12", "Centre_13", "Centre_14", "Centre_15", "Centre_16", "Centre_17", "Centre_18", "Centre_19", "Centre_20",
+            "Centre_21", "Centre_22", "Centre_23", "Centre_24", "Centre_25", "Centre_26", "Centre_27", "Centre_28", "Centre_29", "Centre_30",
+            "Centre_31", "Centre_32", "Centre_33", "Centre_34", "Centre_35", "Centre_36", "Centre_37", "Centre_38", "Centre_39", "Centre_40",
+            "Centre_41", "Centre_42", "Centre_43", "Centre_44", "Centre_45", "Centre_46", "Centre_47", "Centre_48", "Centre_49", "Centre_50",
+            "Centre_51", "Centre_52", "Centre_53", "Centre_54", "Centre_55", "Centre_56", "Centre_57", "Centre_58", "Centre_59", "Centre_60",
+            "Centre_61", "Centre_62", "Centre_63", "Centre_64", "Centre_65", "Centre_66", "Centre_67", "Centre_68", "Centre_69", "Centre_70",
+            "Centre_71", "Centre_72", "Centre_73", "Centre_74", "Centre_75", "Centre_76", "Centre_77", "Centre_78", "Centre_79", "Centre_80",
+            "Centre_81", "Centre_82", "Centre_83", "Centre_84", "Centre_85", "Centre_86", "Centre_87", "Centre_88", "Centre_89", "Centre_90",
+            "Centre_91", "Centre_92", "Centre_93", "Centre_94", "Centre_95", "Centre_96", "Centre_97", "Centre_98", "Centre_99", "Centre_100"
+        ];
+
+    centers.forEach(center => {
+        const option = document.createElement('option');
+        option.textContent = center;
+        centerSelect.appendChild(option);
+    });
+
+    // Fetch predictions when "Get Prediction" is clicked
+    document.getElementById('getPrediction').addEventListener('click', () => {
+        const selectedCommodity = commoditySelect.value;
+        const selectedCenter = centerSelect.value;
+
+        fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ commodity: selectedCommodity, center: selectedCenter })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // Log the response data
+            document.getElementById('currentPrice').textContent = data.currentPrice.toFixed(2);
+            document.getElementById('predictionChart').src = 'data:image/png;base64,' + data.chartData.chart;
+
+            // Handle button clicks for predictions
+            document.getElementById('oneMonthBtn').onclick = () => {
+                document.getElementById('predictedPrice').textContent = data.oneMonthPrediction ? data.oneMonthPrediction.toFixed(2) : "N/A";
+            };
+
+            document.getElementById('threeMonthsBtn').onclick = () => {
+                document.getElementById('predictedPrice').textContent = data.threeMonthPrediction ? data.threeMonthPrediction.toFixed(2) : "N/A";
+            };
+
+            document.getElementById('sixMonthsBtn').onclick = () => {
+                document.getElementById('predictedPrice').textContent = data.sixMonthPrediction ? data.sixMonthPrediction.toFixed(2) : "N/A";
+            };
+        })
+        .catch(error => {
+            console.error('Error fetching predictions:', error);
+            alert('Failed to fetch predictions. Please try again later.');
+        });
+    });
+
+    // Fetch national average prediction
+    document.getElementById('getNationalPrediction').addEventListener('click', () => {
+        const selectedCommodity = commoditySelect.value;
+
+        fetch('/nationalp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ commodity: selectedCommodity })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // Log the national prediction data
+            document.getElementById('nationalPredictionChart').src = data.chartData.chart; // Update to static image
+        })
+        .catch(error => {
+            console.error('Error fetching national predictions:', error);
+            alert('Failed to fetch national predictions. Please try again later.');
+        });
+    });
+
+    </script>
+
+</body>
+</html>

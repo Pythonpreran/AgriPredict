@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+</head>
+<body>
+
+    <header class="header">
+    <nav class="nav">
+        <div class="logo-container">
+            <img class="logo" src="{{ url_for('static', filename='images/whitelogopng.png') }}" alt="logo">
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('prediction') }}">Prediction</a>
+            <a href="{{ url_for('supply') }}">Supply Chain</a>
+            <a href="{{ url_for('disaster') }}">Disaster Prediction</a>
+        </div>
+            <div class="menu">
+                <div class="item">
+                    <a href="#" class="link">
+                        <i class="fa fa-bars" aria-hidden="true" id="fa-bars"></i>
+                    </a>
+                    <div class="submenu">
+                        <div class="submenu-item" id="my-account"><a href="{{ url_for('my_account') }}" style="text-decoration: none; color: black;">My Account</a></div>
+                        <div class="submenu-item" id="scrollToFooterBtn" style="color: black;">Contact Us</div>
+                        <div class="submenu-item" id="logout"><a href="{{ url_for('login') }}" style="text-decoration: none;color: black;">Logout</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="welcome-bg" class="welcome"> 
+        <div class="content-container">
+            <!-- Left Text Section -->
+            <div class="welcome-text">
+                <h1 class="scroll-animate">Hello <span style="color: rgb(0, 255, 0);">User</span>, <br>Welcome to AgriPredict</h1>
+                <p class="scroll-animate delay-1" style="font-size: large;">AgriPredict leverages advanced AI and data analytics to forecast agricultural commodity prices...</p>
+                <button class="btn scroll-animate delay-2"><a href="{{ url_for('prediction') }}" style="text-decoration: none;">Learn More</a></button>
+            </div>
+    
+            <!-- Right Chart Section -->
+            <div id="chart-container">
+                <div id="chart_div" style="width: 600px; height: 400px;margin-top: 70px;"></div>
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    <div class="main-content">
+    <div class="avg">
+        <h1>Average Prices of Commodities</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sno">Sl. No</th>
+                    <th>Commodity</th>
+                    <th>Average Price (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Wheat</td>
+                    <td class="price-up">48.75</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Rice</td>
+                    <td class="price-down">35.20</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sugar</td>
+                    <td class="price-up">42.10</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Corn</td>
+                    <td class="price-down">30.45</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Soybeans</td>
+                    <td class="price-up">55.80</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Barley</td>
+                    <td class="price-down">29.60</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Oats</td>
+                    <td class="price-up">45.20</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Tea</td>
+                    <td class="price-down">25.35</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Coffee</td>
+                    <td class="price-up">65.40</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Cotton</td>
+                    <td class="price-down">28.50</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn"><a href="{{ url_for('supply') }}" style="text-decoration: none;">View All</a></button>
+    </div>
+
+    <div class="disaster-alert-header">
+        <h1>Upcoming Disasters Alert</h1>
+    
+    <div class="disaster-alert">
+        <!-- Disaster Card 1 -->
+        <div class="disaster-card mild">
+            <i class="fas fa-water disaster-icon" style="color: rgb(0, 174, 255);"></i><br><br>
+            <h2>Flood</h2>
+            <p>Location: Bihar</p>
+            <p>Date: 15th May 2025</p>
+            <p class="severity">Severity: Mild</p>
+        </div>
+
+        <!-- Disaster Card 2 -->
+        <div class="disaster-card moderate">
+            <img src="{{ url_for('static', filename='images/earthquake.png') }}" alt="earthquake" width="60px" height="60px"><br><br>
+            <h2>Earthquake</h2>
+            <p>Location: Manipur</p>
+            <p>Date: 26th May 2025</p>
+            <p class="severity">Severity: Moderate</p>
+        </div>
+
+        <!-- Disaster Card 3 -->
+        <div class="disaster-card severe">
+            <i class="fas fa-wind disaster-icon" style="color: rgb(189, 189, 189);"></i><br><br>
+            <h2>Cyclone</h2>
+            <p>Location: Odisha</p>
+            <p>Date: 1st June 2025</p>
+            <p class="severity">Severity: Severe</p>
+        </div>
+
+        <!-- Disaster Card 4 -->
+        <div class="disaster-card mild">
+            <i class="fas fa-fire disaster-icon" style="color: rgb(255, 115, 0);"></i><br><br>
+            <h2>Wildfire</h2>
+            <p>Location: Uttarakhand</p>
+            <p>Date: 18th May 2025</p>
+            <p class="severity">Severity: Mild</p>
+        </div>
+
+            <!-- Disaster Card 5 -->
+            <div class="disaster-card moderate">
+                <img src="{{ url_for('static', filename='images/tsunami.jpg') }}" alt="tsunami" width="60px" height="60px" ><br><br>
+                <h2>Tsunami</h2>
+                <p>Location: Chennai </p>
+                <p>Date: 27th June 2025</p>
+                <p class="severity">Severity: Moderate</p>
+            </div>
+
+        <!-- Disaster Card 6 -->
+        <div class="disaster-card severe">
+            <img src="{{ url_for('static', filename='images/volcano-eruption.png') }}" alt="volcano" width="60px" height="60px"><br><br>
+            <h2>Volcano Eruption</h2>
+            <p>Location: Barren islands,Andaman</p>
+            <p>Date: 21st June 2025</p>
+            <p class="severity">Severity: Severe</p>
+        </div>
+    </div>
+</div>
+
+<div class="model-accuracy">
+<div class="model-accuracy-header">
+    <h1>Model Accuracy</h1>
+</div>
+
+<div class="model-accuracy-section">
+    <!-- SARIMA Model Accuracy Circle -->
+    <div class="accuracy-circle high-accuracy">
+        <div class="circle-content">
+            <i class="fas fa-chart-line model-icon"></i>
+            <h2>SARIMA Model</h2>
+            <p class="accuracy">72%</p>
+        </div>
+    </div>
+
+    <!-- LSTM Model Accuracy Circle -->
+    <div class="accuracy-circle moderate-accuracy">
+        <div class="circle-content">
+            <i class="fas fa-chart-area model-icon"></i>
+            <h2>XGBoost</h2>
+            <p class="accuracy">82%</p>
+        </div>
+    </div>
+
+    <!-- Hybrid Model Accuracy Circle -->
+    <div class="accuracy-circle low-accuracy">
+        <div class="circle-content">
+            <i class="fas fa-chart-bar model-icon"></i>
+            <h2>Hybrid Model</h2>
+            <p class="accuracy">92%</p>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="real-time-forecast">
+    <h1>Real-Time Forecast</h1>
+
+    <!-- Date and Time -->
+    <div class="update-time">
+        <p>Last updated: <span id="current-time">12:30 PM, May 14, 2025</span></p>
+    </div>
+<center>
+    <!-- Key Metrics -->
+    <div class="forecast-metrics">
+        <div class="metric">
+            <p>Current Temp: <span>28°C</span></p>
+        </div>
+        <div class="metric">
+            <p>Rainfall Prediction: <span>10 mm</span></p>
+        </div>
+        <div class="metric">
+            <p>Wind Speed: <span>12 km/h</span></p>
+        </div>
+        <div class="metric">
+            <p>Forecast Confidence: <span>85%</span></p>
+        </div>
+    </div>
+</center>
+    <!-- Insights Section -->
+    <div class="forecast-insights">
+        <h3>Key Insights</h3><br>
+        <p>The upcoming week is expected to see a 5% rise in wheat prices due to an anticipated drought. The accuracy of the forecast is high at 85%.</p>
+    </div><br>
+
+    <!-- Chart Container -->
+     <center>
+    <div id="chart_div"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 790px; height: 400px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="790" height="400" aria-label="A chart." style="overflow: hidden;"><defs id="_ABSTRACT_RENDERER_ID_0"><clipPath id="_ABSTRACT_RENDERER_ID_1"><rect x="119" y="80" width="553" height="240"></rect></clipPath><filter id="_ABSTRACT_RENDERER_ID_2"><feGaussianBlur in="SourceAlpha" stdDeviation="2"></feGaussianBlur><feOffset dx="1" dy="1"></feOffset><feComponentTransfer><feFuncA type="linear" slope="0.1"></feFuncA></feComponentTransfer><feMerge><feMergeNode></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><rect x="0" y="0" width="790" height="400" stroke="none" stroke-width="0" fill="#000000"></rect><g><rect x="684" y="80" width="94" height="28" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><rect x="684" y="80" width="94" height="28" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="713" y="90.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">Price</text><text text-anchor="start" x="713" y="106.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">Change (%)</text></g><path d="M684,86L708,86" stroke="#4cdf49" stroke-width="2" fill-opacity="1" fill="none"></path></g></g><g><rect x="119" y="80" width="553" height="240" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g clip-path="url(file:///C:/Users/DELL/Downloads/dashboard.html#_ABSTRACT_RENDERER_ID_1)"><g><rect x="119" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="234" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="349" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="464" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="579" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="177" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="292" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="407" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="522" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="637" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="694" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="119" y="319" width="553" height="1" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="119" y="259" width="553" height="1" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="119" y="200" width="553" height="1" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="119" y="140" width="553" height="1" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="119" y="80" width="553" height="1" stroke="none" stroke-width="0" fill="#2f4f4f"></rect><rect x="119" y="289" width="553" height="1" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="119" y="229" width="553" height="1" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="119" y="170" width="553" height="1" stroke="none" stroke-width="0" fill="#132020"></rect><rect x="119" y="110" width="553" height="1" stroke="none" stroke-width="0" fill="#132020"></rect></g><g><rect x="119" y="80" width="1" height="240" stroke="none" stroke-width="0" fill="#333333"></rect><rect x="119" y="319" width="553" height="1" stroke="none" stroke-width="0" fill="#333333"></rect></g><g><path d="M119.5,319.5L142.5,313.525L165.5,307.55L188.5,301.575L211.5,289.625L234.5,283.65L257.5,271.7L280.5,259.75L303.5,253.775L326.5,241.825L349.5,235.85000000000002L372.5,229.875L395.5,223.9L418.5,217.925L441.5,211.95L464.5,205.97500000000002L487.5,200L510.5,194.025L533.5,188.05L556.5,176.10000000000002L579.5,164.15L602.5,152.20000000000002L625.5,140.25L648.5,128.3L671.5,116.35000000000002" stroke="#4cdf49" stroke-width="2" fill-opacity="1" fill="none"></path></g></g><g></g><g><g><text text-anchor="middle" x="119.5" y="337.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">0</text></g><g><text text-anchor="middle" x="234.5" y="337.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">5</text></g><g><text text-anchor="middle" x="349.5" y="337.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">10</text></g><g><text text-anchor="middle" x="464.5" y="337.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">15</text></g><g><text text-anchor="middle" x="579.5" y="337.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">20</text></g><g><text text-anchor="end" x="107" y="323.7" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">0</text></g><g><text text-anchor="end" x="107" y="263.95" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">5</text></g><g><text text-anchor="end" x="107" y="204.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">10</text></g><g><text text-anchor="end" x="107" y="144.45" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">15</text></g><g><text text-anchor="end" x="107" y="84.7" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">20</text></g></g></g><g><g><text text-anchor="middle" x="395.5" y="375.1" font-family="Arial" font-size="16" font-style="italic" stroke="none" stroke-width="0" fill="#4cdf49">Time (Days)</text><rect x="119" y="361.5" width="553" height="16" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><text text-anchor="middle" x="51.9" y="200" font-family="Arial" font-size="14" font-style="italic" transform="rotate(-90 51.9 200)" stroke="none" stroke-width="0" fill="#4cdf49">Price Change (%)</text><path d="M39.99999999999999,320L40.00000000000001,80L54.00000000000001,80L53.99999999999999,320Z" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></path></g></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Time (Days)</th><th>Price Change (%)</th></tr></thead><tbody><tr><td>0</td><td>0</td></tr><tr><td>1</td><td>0.5</td></tr><tr><td>2</td><td>1</td></tr><tr><td>3</td><td>1.5</td></tr><tr><td>4</td><td>2.5</td></tr><tr><td>5</td><td>3</td></tr><tr><td>6</td><td>4</td></tr><tr><td>7</td><td>5</td></tr><tr><td>8</td><td>5.5</td></tr><tr><td>9</td><td>6.5</td></tr><tr><td>10</td><td>7</td></tr><tr><td>11</td><td>7.5</td></tr><tr><td>12</td><td>8</td></tr><tr><td>13</td><td>8.5</td></tr><tr><td>14</td><td>9</td></tr><tr><td>15</td><td>9.5</td></tr><tr><td>16</td><td>10</td></tr><tr><td>17</td><td>10.5</td></tr><tr><td>18</td><td>11</td></tr><tr><td>19</td><td>12</td></tr><tr><td>20</td><td>13</td></tr><tr><td>21</td><td>14</td></tr><tr><td>22</td><td>15</td></tr><tr><td>23</td><td>16</td></tr><tr><td>24</td><td>17</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 410px; left: 800px; white-space: nowrap; font-family: Arial; font-size: 13px; font-weight: bold;">18</div><div></div></div></div><br>
+</center>
+    <!-- Placeholder for additional content (optional) -->
+    <p>Track the real-time performance of your favorite commodities.</p>
+</div>
+<div class="future-forecast">
+    <h1>Future Forecast</h1>
+
+    <h3 style="color: white;font-weight: 200;">For the upcoming month</h3><br>
+
+    <!-- Projected Metrics -->
+    <div class="forecast-projections">
+        <div class="projection">
+            <p>Wheat Prices: <span class="increase">+14.5%</span></p>
+        </div>
+        <div class="projection">
+            <p>Rice : <span class="decrease">-12.0%</span></p>
+        </div>
+        <div class="projection">
+            <p>Sugar : <span class="increase">+21.2%</span></p>
+        </div>
+        <div class="projection">
+            <p>Soy Prices: <span class="increase">+13.7%</span></p>
+        </div>
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+         document.getElementById("scrollToFooterBtn").addEventListener("click", function() {
+      document.getElementById("footer").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('fa-bars');
+    const submenu = document.querySelector('.submenu');
+    const menu = document.querySelector('.menu');
+    
+    // Show submenu on hover
+    menu.addEventListener('mouseover', function() {
+        submenu.style.display = 'block';
+    });
+    
+    menu.addEventListener('mouseleave', function() {
+        submenu.style.display = 'none';
+    });
+
+    // Hide submenu when clicking outside of the menu and submenu
+    document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target)) {
+            submenu.style.display = 'none';
+        }
+    });
+
+    // Prevent closing when clicking inside the submenu
+    submenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+});
+
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(drawComparisonChart);
+
+    function drawComparisonChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Time (hrs)');  // X-axis: Time in hours
+      data.addColumn('number', 'Actual Price');  // Actual Price
+      data.addColumn('number', 'Predicted Price (Hybrid Model)');  // Predicted Price
+
+      data.addRows([
+        [0, 0, 0], [1, 0.5, 0.6], [2, 1, 1.1], [3, 1.5, 1.4], [4, 2.5, 2.4], 
+        [5, 3, 3.2], [6, 4, 4.2], [7, 5, 5.1], [8, 5.5, 5.6], [9, 6.5, 6.7],
+        [10, 7, 7.1], [11, 7.5, 7.4], [12, 8, 8], [13, 8.5, 8.4], [14, 9, 9.1],
+        [15, 9.5, 9.6], [16, 10, 10], [17, 10.5, 10.2], [18, 11, 11], 
+        [19, 12, 12], [20, 13, 12.9], [21, 14, 14], [22, 15, 14.7], 
+        [23, 16, 15.8], [24, 17, 16.1]
+      ]);
+
+      var options = {
+        backgroundColor: { fill: 'black' },
+        chartArea: {
+          backgroundColor: 'transparent',
+          width: '70%',
+          height: '60%',
+        },
+        hAxis: {
+          title: 'Time (Days)',
+          textStyle: {
+            color: '#FFFFFF',
+            fontSize: 12
+          },
+          titleTextStyle: {
+            color: '#4cdf49',
+            fontSize: 16
+          },
+          gridlines: {
+            color: '#2f4f4f',
+          }
+        },
+        vAxis: {
+          title: 'Price Change (%)',
+          textStyle: {
+            color: '#FFFFFF',
+            fontSize: 12
+          },
+          titleTextStyle: {
+            color: '#4cdf49',
+            fontSize: 14
+          },
+          gridlines: {
+            color: '#2f4f4f',
+          }
+        },
+        colors: ['#4cdf49', '#ff4c4c'],  // Blue for actual, Red for predicted
+        legend: {
+            position:'top',
+          textStyle: {
+            color: '#FFFFFF',
+            fontSize: 12
+          }
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+    
+</script>
+
+
+</div>
+
+
+
+    <footer id="footer">
+        <center><h1>Contact Us</h1></center>
+        <div class="footer-content">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form>
+                        <label for="name">Your Name:</label><br>
+                        <input type="text" id="name" name="name" required><br><br>
+
+                        <label for="email">Your Email:</label><br>
+                        <input type="email" id="email" name="email" required><br><br>
+
+                        <label for="message">Your Message:</label><br>
+                        <textarea id="message" name="message" required></textarea>
+
+                        <div class="recaptcha">
+                            <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                        </div>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-info">
+                <ul>
+                    <li><i class="fa fa-envelope"></i> Agripredict@gmail.com</li>
+                    <li><i class="fa fa-phone"></i> +123 356-684-693</li>
+                    <li><i class="fa fa-map-marker"></i> Mysuru, Karnataka, India</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="/" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2024 Green Dashboard. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
+    
+    <script>
+        VANTA.NET({
+          el: "#welcome-bg", // Targeting the welcome section by id
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0xf036, // Customize the color
+          backgroundColor: 0x0 // Background color (black)
+        });
+    </script>
+
+</body>
+</html>

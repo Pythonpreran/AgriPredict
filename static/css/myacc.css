@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#welcome-bg {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.go-back-btn {
+    background-color: white;
+    color: black;
+    width: 12rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.icon-wrapper {
+    background-color: #0bc559;
+    border-radius: 1rem;
+    height: 3rem;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0.25rem;
+    top: 0.25rem;
+    transition: width 0.5s ease;
+    z-index: 10;
+}
+
+.go-back-btn:hover .icon-wrapper {
+    width: 11.5rem;
+}
+
+.go-back-btn p {
+    margin-left: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.go-back-btn:hover p {
+    transform: translateX(0.5rem);
+}
+
+.account-wrapper {
+    width: 80%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: relative;
+}
+
+.account-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.profile-section {
+    flex: 1;
+}
+
+.profile-pic-bg {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.default-emoji {
+    font-size: 80px;
+    color: #333;
+}
+
+.info-section {
+    flex: 2;
+    margin-left: 30px;
+}
+
+.info-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.info-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.logout-btn, .edit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4cdf49;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #4c89df;
+}
+
+.logout-btn:hover, .edit-btn:hover {
+    background-color: #45b843;
+}
+
+.edit-btn:hover {
+    background-color: #3b77d1;
+}
+
+.account-summary {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.account-summary h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #4cdf49;
+}
+
+.account-summary ul {
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.6;
+}

@@ -1,0 +1,685 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+}
+
+.header {
+  background: radial-gradient(circle, rgba(16,106,18,1) 0%, rgb(10, 26, 12) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid white;
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex: 2;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap; /* Prevent wrapping to a new line */
+}
+
+.nav-links a {
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap; /* Prevent text from breaking into multiple lines */
+}
+
+.nav-links a:hover {
+  background-color: #ffffff;
+  color: #038620;
+}
+
+.menu {
+  font-size: 16px;
+  display: flex;
+  position: relative;
+  padding: 10px;
+  margin-left: 15px;
+}
+
+.menu .link {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu .item {
+  position: relative;
+}
+
+.menu .submenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -40px;
+  background-color: white;
+  color: black;
+  width: 150px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-align: center;
+}
+
+.menu .submenu-item {
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#fa-bars {
+  color: green; /* Green color for the bars */
+  background-color: white; /* White background */
+  border-radius: 50%; /* Circular background */
+  padding: 10px; /* Adjust as per the size you want */
+  display: inline-block; /* Ensure it's inline and the circle wraps around */
+}
+
+#fa-bars:hover {
+  background-color: green; /* Change the background color on hover */
+  color: white; /* Change the text color on hover */
+}
+
+.menu .submenu-item:hover {
+  background-color: green;
+  color: white;
+}
+
+.menu:hover .submenu {
+  display: block;
+}
+
+body.menu-open .submenu {
+  display: none;
+}
+
+
+.welcome {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  color: white;
+  height: 100vh; /* Takes full viewport height */
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  max-width: 45%;
+  justify-content: center; /* Center align text elements */
+}
+
+.welcome-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.welcome-text p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+
+.btn {
+  background-color: #15ff00;
+  color: white;
+  padding: 10px ;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: white;
+  color: rgb(14, 216, 14);
+}
+.sno{
+  width: 20px;
+}
+
+
+
+.avg {
+  background: rgb(2,1,15);
+  background: linear-gradient(90deg, rgba(2,1,15,1) 3%, rgba(45,121,9,1) 35%, rgba(31,129,31,1) 70%, rgba(2,1,15,1) 97%);
+
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.avg h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #fafafa;
+}
+
+table {
+  width: 80%; /* Smaller table width to fit better */
+  border-collapse: collapse;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+table, th, td {
+  border: 1px solid #aaaaaa;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+th {
+  background-color: #76e675;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Price increasing - green text with up arrow */
+.price-up {
+  color: green;
+  font-weight: bold;
+}
+
+.price-up::after {
+  content: ' ↑'; /* Arrow added */
+}
+
+/* Price decreasing - red text with down arrow */
+.price-down {
+  color: red;
+  font-weight: bold;
+}
+
+.price-down::after {
+  content: ' ↓'; /* Arrow added */
+}
+
+.disaster-alert-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  color: white;
+  height: 110vh; /* Takes full viewport height */
+  background: rgb(2,1,15);
+  background: linear-gradient(90deg, rgba(2,1,15,1) 3%, rgba(45,121,9,1) 35%, rgba(31,129,31,1) 70%, rgba(2,1,15,1) 97%);
+
+
+}
+
+.disaster-alert-header h1{
+  font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #ebfdeb;
+}
+
+.disaster-alert {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.disaster-card {
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  height: 250px;
+}
+
+.disaster-card:hover {
+  transform: scale(1.05);
+}
+
+.disaster-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.disaster-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #970625;
+}
+
+.disaster-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  font-weight: 550;
+}
+
+.severity {
+  font-weight: bold;
+}
+
+.mild .severity {
+  color: green;
+}
+
+.moderate .severity {
+  color: orange;
+}
+
+.severe .severity {
+  color: red;
+}
+
+.model-accuracy{
+  background: rgb(2,1,15);
+  background: linear-gradient(90deg, rgba(2,1,15,1) 3%, rgba(45,121,9,1) 35%, rgba(31,129,31,1) 70%, rgba(2,1,15,1) 97%);
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.model-accuracy-header {
+  margin-bottom: 40px;
+}
+
+.model-accuracy-header h1 {
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.model-accuracy-section {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.accuracy-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.accuracy-circle:hover {
+  transform: scale(1.05);
+}
+
+.circle-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.model-icon {
+  font-size: 2.5rem;
+  color: #d12ce7;
+  margin-bottom: 10px;
+}
+
+.model-accuracy-header h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.accuracy {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.high-accuracy {
+  background: linear-gradient(135deg, #76e675, #60c360);
+}
+
+.moderate-accuracy {
+  background: linear-gradient(135deg, #f5d76e, #f39c12);
+}
+
+.low-accuracy {
+  background: linear-gradient(135deg, #e94560, #d32f2f);
+}
+
+.real-time-forecast {
+  background: rgb(2,1,15);
+background: linear-gradient(90deg, rgba(2,1,15,1) 3%, rgba(45,121,9,1) 35%, rgba(31,129,31,1) 70%, rgba(2,1,15,1) 97%);
+
+
+
+
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.real-time-forecast h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.update-time {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #e6e6e6;
+}
+
+.forecast-metrics {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  width: 80%;
+}
+
+.metric {
+  background-color: #1b7d2e;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  text-align: center;
+}
+
+.metric span {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.forecast-insights {
+  margin-top: 30px;
+}
+
+.forecast-insights h3 {
+  font-size: 1.8rem;
+  color: #76e675;
+}
+
+.forecast-insights p {
+  font-size: 1.2rem;
+}
+
+#chart_div {
+  width: 60%;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.future-forecast {
+  text-align: center;
+  padding: 40px;
+  background: rgb(2,1,15);
+  background: linear-gradient(90deg, rgba(2,1,15,1) 3%, rgba(45,121,9,1) 35%, rgba(31,129,31,1) 70%, rgba(2,1,15,1) 97%);
+
+
+
+}
+
+.future-forecast h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.forecast-projections {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.projection {
+  background-color: #1b7d2e;
+  padding: 20px 30px;
+  border-radius: 8px;
+  color: white;
+  margin: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+}
+
+.projection:hover {
+  transform: scale(1.05);
+}
+
+.projection span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.increase {
+  color: #76e675;
+}
+
+.decrease {
+  color: #e94560;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between; /* Align text left and chart right */
+  align-items: center; /* Vertically center the content */
+  gap: 20px; /* Add some space between the text and the chart */
+}
+
+.welcome-text {
+  flex: 1; /* Take up the left side of the container */
+  max-width: 50%; /* Ensure text doesn't take more than half the width */
+}
+
+#chart-container {
+  flex: 1; /* Take up the right side for the chart */
+  max-width: 50%; /* Ensure chart doesn't take more than half the width */
+}
+
+#chart_div {
+  width: 100%; /* Make sure the chart takes full width within its container */
+  height: auto;
+}
+
+
+footer {
+  background-color: #1e1e1e;
+  color: #bbbbbb;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-container {
+  width: 70%;
+}
+
+footer h1 {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+
+.contact-form label, .contact-form input, .contact-form textarea {
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2e2e2e;
+  color: white;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.contact-form button {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #275a34;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #11df3e;
+}
+
+.contact-info {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  color: #bbbbbb;
+  margin-top: 100px;
+  height: auto;
+  font-size: larger;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info ul li {
+  margin-bottom: 15px;
+}
+
+.contact-info ul li i {
+  margin-right: 10px;
+  color: #00FF7F;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: #bbbbbb;
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 20px;
+  color: #bbbbbb;
+}
+
+ /* Scrollbar styling for modern look */
+    /* For Chrome, Edge, and Safari */
+    ::-webkit-scrollbar {
+      width: 10px; /* Scrollbar width */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent; /* Background of the scrollbar track */
+      border-radius: 10px; /* Rounded corners */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888; /* Scrollbar color */
+      border-radius: 10px; /* Rounded scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Darker color on hover */
+    }

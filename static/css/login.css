@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars */
+    position: relative; /* For proper stacking of the pseudo-element */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    z-index: -1; /* Ensure the background image is above the video but below the container */
+}
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+.left {
+    flex: 1.2;
+    background-color: #2aad40;
+    color: white;
+    padding: 95px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px 0 0 10px;
+}
+.left .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.left .image-container img {
+    width: 100%;
+    max-width: 400px;
+}
+.left p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 130px;
+    text-align: center;
+}
+.left .image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: auto;
+    padding: 20px;
+}
+.right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.right h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+.right p {
+    margin-bottom: 20px;
+    color: #7a7a7a;
+}
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #0e4b87;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 300px;
+    margin-left: 5%;
+    
+}
+.google-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.forgot-password {
+    text-align: right;
+    margin-bottom: 15px;
+    color: #2aad40;
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+.login-btn {
+    background-color: #2aad40;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+.login-btn:hover {
+    background-color: #35d650;
+}
+.skip {
+    text-align: center;
+    margin-top: 20px;
+    color: #7a7a7a;
+    font-size: larger;
+}
+.skip:hover {
+    color: #2aad40;
+    text-decoration: underline;
+}
+a {
+    color: #2aad40;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.google-btn:hover {
+    background: #1a68c7;
+    color: white;
+}
+.custom-line {
+    border: 0;
+    height: 0.1px;
+    background: #000;
+}
+.sign-up-form {
+    display: none;
+}
+.show-sign-up .login-form {
+    display: none;
+}
+.show-sign-up .sign-up-form {
+    display: flex;
+    flex-direction: column;
+}

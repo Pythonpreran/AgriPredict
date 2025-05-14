@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Agri Price Predictor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <img class="logo" src="{{ url_for('static', filename='images/whitelogopng.png') }}" alt="logo">
+            </div>
+           <div class="nav-links">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="#!" data-scroll="features">Features</a>
+    <a href="#!" data-scroll="commodities">Commodities</a>
+    <a href="#!" data-scroll="how-it-works">Workflow</a>
+    <a id="scrollToFooterBtn">Contact Us</a>
+    <a href="{{ url_for('login') }}" class="login-button" style="text-decoration: none;">Login</a>
+</div>
+
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Smart Agriculture Price Predictor</h1><br>
+        <p>Predicting Future Prices of Agri-Horticultural Commodities with AI-ML</p>
+        <button><a href="{{ url_for('login') }}" style="color: white;text-decoration: none;padding: 10px;">Get Started</a></button>
+    </section>
+
+    <section class="features" id="features">
+        <h2 style="color: white;">Key Features</h2>
+        <div class="feature-container">
+            <div class="feature">
+                <img src="{{ url_for('static', filename='images/ai.png') }}" alt="Hybrid Model">
+                <h3>Hybrid Model</h3>
+                <p>Combining ARIMA & ML for accurate predictions.</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='images/supply.png') }}" alt="Supply Chain Insights">
+                <h3>Supply Chain Insights</h3>
+                <p>Real-time integration of supply chain data.</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='images/emergency.png') }}" alt="Disaster Prediction">
+                <h3>Disaster Prediction</h3>
+                <p>Forecasting impacts of natural disasters.</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='images/aiexpl.png') }}" alt="Explainable AI">
+                <h3>Explainable AI</h3>
+                <p>Transparent predictions with influencing insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="commodities" id="commodities">
+        <h2>Commodities We Cover</h2>
+        <div class="commodity-grid">
+            <div class="commodity-card">
+                <img src="{{ url_for('static', filename='images/onion.png') }}" alt="Onion">
+                <h3>Onion</h3>
+                <p>View price forecasts and trends.</p>
+                <button>View Forecasts</button>
+            </div>
+            <div class="commodity-card">
+                <img src="{{ url_for('static', filename='images/potato.png') }}" alt="Potato">
+                <h3>Potato</h3>
+                <p>View price forecasts and trends.</p>
+                <button>View Forecasts</button>
+            </div>
+            <div class="commodity-card">
+                <img src="{{ url_for('static', filename='images/bean.png') }}" alt="Pulses">
+                <h3>Pulses</h3>
+                <p>View price forecasts and trends.</p>
+                <button>View Forecasts</button>
+            </div>
+        </div>
+        <button class="btn"><a href="{{ url_for('login') }}" style="color: white;text-decoration: none;padding: 10px;">View All</a></button>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Step 1: Data Collection</h3>
+                <p>Collect historical prices, supply chain data, and weather information.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2: AI-ML Modeling</h3>
+                <p>Use ARIMA for linear trends and XGBoost for non-linear patterns, combining machine learning models for more accurate predictions..</p>
+            </div>
+            <div class="step">
+                <h3>Step 3: Price Prediction</h3>
+                <p>Forecast prices with transparency using explainable AI.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <h1>Contact Us</h1>
+          <div class="footer-content">
+              <!-- Contact Form on the left -->
+              <div class="contact-container">
+                  
+                  <div class="contact-form">
+                      <form>
+                          <label for="name">Your Name:</label><br>
+                          <input type="text" id="name" name="name" required><br><br>
+                          
+                          <label for="email">Your Email:</label><br>
+                          <input type="email" id="email" name="email" required><br><br>
+                          
+                          <label for="message">Your Message:</label><br>
+                          <textarea id="message" name="message" required></textarea>
+                          
+                          <div class="recaptcha">
+                              <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                          </div>
+                          
+                          <button type="submit">Send Message</button>
+                      </form>
+                  </div>
+              </div>
+
+              <!-- Contact Info and Social Icons on the right -->
+              <div class="contact-info">
+                  <ul>
+                      <li><i class="fa fa-envelope"><mail to="Agripredict@gmail.com"></i> Agripredict@gmail.com</li>
+                      <li><i class="fa fa-phone"></i> +123 356-684-693</li>
+                      <li><i class="fa fa-map-marker"></i> Mysuru, Karnataka, India</li>
+                  </ul>
+                  <div class="social-icons">
+                      <a href="/" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                      <a href="/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                      <a href="/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+
+          <p>&copy; 2024 Green Dashboard. All rights reserved.</p>
+      </footer>
+<script>
+    document.getElementById("scrollToFooterBtn").addEventListener("click", function () {
+        document.getElementById("footer").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Smooth scroll for new nav links
+    document.querySelectorAll('[data-scroll]').forEach(link => {
+        link.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-scroll');
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

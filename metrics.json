@@ -1,0 +1,125 @@
+{
+  "n_series": 10,
+  "total_months_evaluated": 438,
+  "mean_baseline_mape": 20.93,
+  "mean_sarima_mape": 10.8,
+  "mean_hybrid_mape": 10.9,
+  "hybrid_improvement_over_baseline_pct": 47.9,
+  "hybrid_improvement_over_sarima_pct": -0.9,
+  "staples_mean_mape": 3.11,
+  "staples_baseline_mape": 9.01,
+  "staples_improvement_pct": 65.5,
+  "best_hybrid_mape": 1.9,
+  "per_series": [
+    {
+      "commodity": "Rice",
+      "market": "Mumbai",
+      "n_train": 307,
+      "n_test": 48,
+      "baseline_mape": 4.812959531936275,
+      "sarima_mape": 3.0171153898839034,
+      "hybrid_mape": 3.0171153898839034,
+      "hybrid_rmse": 1.3980566209471612,
+      "hybrid_mae": 1.0310308919584807
+    },
+    {
+      "commodity": "Rice",
+      "market": "Delhi",
+      "n_train": 306,
+      "n_test": 48,
+      "baseline_mape": 7.15571385916429,
+      "sarima_mape": 1.8981109597462316,
+      "hybrid_mape": 1.8981109597462316,
+      "hybrid_rmse": 0.9619563234627425,
+      "hybrid_mae": 0.6423358012494095
+    },
+    {
+      "commodity": "Wheat",
+      "market": "Chennai",
+      "n_train": 306,
+      "n_test": 48,
+      "baseline_mape": 5.969537282046595,
+      "sarima_mape": 2.6106660605138083,
+      "hybrid_mape": 3.120894060814251,
+      "hybrid_rmse": 1.5536791142068196,
+      "hybrid_mae": 1.1925092669355957
+    },
+    {
+      "commodity": "Wheat",
+      "market": "Jaipur",
+      "n_train": 306,
+      "n_test": 48,
+      "baseline_mape": 12.01552907393774,
+      "sarima_mape": 3.7352443631778747,
+      "hybrid_mape": 3.7352443631778747,
+      "hybrid_rmse": 1.203923007101652,
+      "hybrid_mae": 0.9440510785785943
+    },
+    {
+      "commodity": "Sugar",
+      "market": "Delhi",
+      "n_train": 307,
+      "n_test": 48,
+      "baseline_mape": 3.7228871411577615,
+      "sarima_mape": 1.8523255153919862,
+      "hybrid_mape": 2.2627581254988165,
+      "hybrid_rmse": 1.1232291136146737,
+      "hybrid_mae": 0.8999495465543507
+    },
+    {
+      "commodity": "Onions",
+      "market": "Mumbai",
+      "n_train": 235,
+      "n_test": 48,
+      "baseline_mape": 35.74025448944,
+      "sarima_mape": 25.89388150290902,
+      "hybrid_mape": 25.89388150290902,
+      "hybrid_rmse": 13.548526779969968,
+      "hybrid_mae": 9.72758007129181
+    },
+    {
+      "commodity": "Potatoes",
+      "market": "Delhi",
+      "n_train": 235,
+      "n_test": 48,
+      "baseline_mape": 36.6081587567286,
+      "sarima_mape": 9.357972395108009,
+      "hybrid_mape": 9.357972395108009,
+      "hybrid_rmse": 3.0970414628914043,
+      "hybrid_mae": 2.2179583137910126
+    },
+    {
+      "commodity": "Oil (mustard)",
+      "market": "Kolkata",
+      "n_train": 307,
+      "n_test": 48,
+      "baseline_mape": 18.365252950278776,
+      "sarima_mape": 4.630338938278584,
+      "hybrid_mape": 4.630338938278584,
+      "hybrid_rmse": 8.484874877781438,
+      "hybrid_mae": 6.96589792784108
+    },
+    {
+      "commodity": "Tomatoes",
+      "market": "Chennai",
+      "n_train": 109,
+      "n_test": 27,
+      "baseline_mape": 73.89215160059446,
+      "sarima_mape": 51.97753896794472,
+      "hybrid_mape": 51.97753896794472,
+      "hybrid_rmse": 25.441551170378986,
+      "hybrid_mae": 16.589803377117054
+    },
+    {
+      "commodity": "Lentils (masur)",
+      "market": "Delhi",
+      "n_train": 109,
+      "n_test": 27,
+      "baseline_mape": 11.045577518651877,
+      "sarima_mape": 3.0752924783932403,
+      "hybrid_mape": 3.0752924783932403,
+      "hybrid_rmse": 4.072335637014004,
+      "hybrid_mae": 2.8722892974859615
+    }
+  ]
+}

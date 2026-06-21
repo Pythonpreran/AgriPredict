@@ -1,0 +1,499 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.header {
+    background: rgb(16,106,18);
+  background: radial-gradient(circle, rgba(16,106,18,1) 0%, rgba(15,26,40,1) 100%);
+    overflow: hidden;
+    color: white;
+    padding: 10px 20px;
+  }
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+}
+
+.logo-container {
+    flex: 1; /* Allows the logo container to take up available space */
+}
+
+.logo {
+    height: 60px; /* Adjust as needed */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex: 2; /* Adjusts the space between logo and login button */
+    justify-content: center; /* Center aligns the nav items */
+    gap: 50px; /* Adjust the gap between nav items */
+}
+
+
+.nav-links a:hover {
+    text-decoration: 4px solid white underline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px; /* Adjust as needed */
+}
+
+.login-button {
+    margin-left: 60px;
+    --green: #0cad27; /* Main green shade */
+    font-size: 14px; /* Slightly smaller font size */
+    padding: 0.6em 2.2em; /* Reduced padding */
+    letter-spacing: 0.05em;
+    position: relative;
+    font-family: inherit;
+    border-radius: 0.5em; /* Slightly smaller border radius */
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--green);
+    background: linear-gradient(to right, rgba(0, 204, 0, 0.1) 1%, transparent 40%, transparent 60%, rgba(0, 204, 0, 0.1) 100%); /* Darker green shade */
+    color: var(--green);
+    box-shadow: inset 0 0 10px rgba(0, 204, 0, 0.4), 0 0 9px 3px rgba(0, 204, 0, 0.1); /* Adjusted shadow color */
+}
+
+.login-button:hover {
+    color: #07a707; /* Lighter green shade */
+    box-shadow: inset 0 0 10px rgba(0, 204, 0, 0.6), 0 0 9px 3px rgba(0, 204, 0, 0.2); /* Adjusted shadow color */
+}
+
+.login-button:before {
+    content: "";
+    position: absolute;
+    left: -3.5em; /* Adjusted position */
+    width: 3.5em; /* Adjusted width */
+    height: 100%;
+    top: 0;
+    transition: transform .4s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(0, 204, 0, 0.1) 40%, rgba(0, 204, 0, 0.1) 60%, transparent 100%); /* Darker green shade */
+}
+
+.login-button:hover:before {
+    transform: translateX(12em); /* Adjusted transform value */
+}
+
+/* Hero Section Styles */
+.hero {
+    
+    background: url('../images/field.jpg') no-repeat center center/cover;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 20px;
+    background-color: #26aa2a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #01dd13;
+}
+
+/* Features Section Styles */
+.features {
+    background-image:     linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3) 40%, rgba(255, 255, 255, 0) 70%),url('../images/features.jpg'); /* Your image here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.features h2 {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2; /* Ensures the heading appears above the gradient */
+}
+
+.feature-container {
+    display: flex;
+    flex-wrap: nowrap;
+    animation: scroll 15s linear infinite;
+    width: 200%;
+}
+
+.feature {
+    background-color: #f4f4f4;
+    width: 13%;
+    min-width: 200px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+
+.feature img {
+    width: 80px;
+    height: 80px;
+}
+
+.feature h3 {
+    margin-top: 15px;
+}
+
+.feature p {
+    margin: 10px 0;
+}
+
+.feature:hover {
+    transform: translateY(-7px);
+    background-color: #c9c9c9;
+}
+
+/* Keyframes for the scroll animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Commodities Section Styles */
+.commodities {
+    padding: 50px 0;
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3) 50%, rgba(255, 255, 255, 0) 70%), 
+        url('../images/commodity.png'); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.commodities h2 {
+    margin-bottom: 40px;
+    color: white;
+    position: relative;
+    z-index: 2; /* Ensures the heading stays visible above the gradient */
+}
+
+.commodity-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.commodity-card {
+    background-color: white;
+    width: 25%;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.commodity-card:hover {
+    transform: translateY(-3px);  /* Small lift on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);  /* Darker shadow on hover */
+    background-color: #eeeeee;
+}
+
+.commodity-card img {
+    width: 100px;
+    height: 100px;
+}
+
+.commodity-card h3 {
+    margin: 15px 0;
+}
+
+.commodity-card p {
+    margin-bottom: 20px;
+}
+
+.commodity-card button ,.btn{
+    padding: 10px 20px;
+    background-color: #26aa2a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.commodity-card button,.btn:hover {
+    background-color: #01dd13;
+}
+
+.how-it-works {
+    background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.4)50%, rgba(0, 0, 0, 0) 70%),
+        #75fa5a;  /* Your base color */  /* Light background color */
+    padding: 50px 0;  /* Adds spacing around the section */
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 2.5em;  /* Larger font size for the heading */
+    margin-bottom: 40px;
+    color: #ffffff;  /* Darker heading color */
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;  /* Space between each step */
+    padding: 0 50px;
+}
+
+.step {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;  /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+    width: 30%;  /* Make each step a smaller box */
+    min-width: 250px;  /* Minimum width for each box */
+    transition: transform 0.3s ease;
+    margin-top: 5px;
+}
+
+.step h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #26aa2a;  /* Step heading color to match your theme */
+}
+
+.step p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.step:hover {
+    transform: translateY(-3px);  /* Small lift on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);  /* Darker shadow on hover */
+    background-color: #eeeeee;
+}
+
+/* Adjusting for smaller screens */
+@media screen and (max-width: 768px) {
+    .steps {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .step {
+        width: 80%;  /* Make each step take up more space on small screens */
+        margin: 0 auto;
+    }
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #1e1e1e;
+    color: #bbbbbb;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-container {
+    width: 70%;
+}
+
+footer h1 {
+    color: white;
+    font-size: 2em;
+    text-align: center; 
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+
+.contact-form label, .contact-form input, .contact-form textarea {
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.contact-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #275a34;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #11df3e;
+}
+
+.contact-info {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    color: #bbbbbb;
+    margin-top: 100px;
+    height: auto;
+    font-size: larger;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 15px;
+}
+
+.contact-info ul li i {
+    margin-right: 10px;
+    color: #00FF7F;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #bbbbbb;
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin-left: 0;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .features .feature-container {
+        flex-direction: column;
+        gap: 20px;
+        animation: none; /* Disable scrolling animation on small screens */
+    }
+
+    .commodity-card {
+        width: 100%;
+    }
+
+    .steps {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+footer p {
+    text-align: center;
+    margin-top: 20px;
+    color: #bbbbbb;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px; /* Scrollbar width */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Scrollbar color */
+    border-radius: 10px; /* Rounded scrollbar */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+  }

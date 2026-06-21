@@ -1,0 +1,390 @@
+@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.5em; 
+    color: white; 
+}
+
+summary::after {
+    content: '';
+    width: 18px;
+    height: 10px;
+    background: url('https://uploads.sitepoint.com/wp-content/uploads/2023/10/1697699669arrow.svg') no-repeat;
+    background-size: cover;
+    transition: 0.2s;
+}
+
+details[open] > summary::after {
+    transform: rotate(180deg);
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details {
+    background-color: #e792e7;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(148, 148, 148, 0)); /* Adds a dark overlay */
+    width: 40%;
+    border-radius: 5px;
+    margin-bottom: 15px; 
+    overflow: hidden; 
+    min-height: 80px; 
+    padding: 10px; 
+    align-items: center;
+    
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    color: #fff;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center; 
+}
+
+th {
+    background-color: #0f2e23;
+}
+ *{box-sizing: border-box;}
+ body {font-family: system-ui, sans-serif; margin: 0px; background: #fff9f1;}
+h1 {font-size: 1.2em;}
+article > *:first-child {margin: 0;}
+article > * + * {margin: 0.75em 0 0 0;}
+pre {color: white; background: #443c35; padding: 1em; border-radius: 5px;}
+article {padding: 10px; margin: 0;}
+details code {font-size: 1.1em;}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-weight:500;
+    font-size: xx-large;
+    color: #fff;
+    
+}
+.header {
+background: radial-gradient(circle, rgba(16,106,18,1) 0%, rgb(10, 26, 12) 100%);
+backdrop-filter: blur(10px);
+border: 1px solid white;
+color: white;
+padding: 10px 20px;
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+.nav {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+}
+
+.logo-container {
+flex: 1;
+}
+
+.logo {
+height: 60px;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+flex: 2;
+justify-content: center;
+gap: 10px;
+flex-wrap: nowrap; /* Prevent wrapping to a new line */
+}
+
+.nav-links a {
+font-family: Arial, sans-serif;
+text-decoration: none;
+color: white;
+font-weight: bold;
+font-size: 18px;
+padding: 10px;
+border-radius: 10px;
+text-align: center;
+white-space: nowrap; /* Prevent text from breaking into multiple lines */
+}
+
+.nav-links a:hover {
+background-color: #ffffff;
+color: #038620;
+}
+
+.menu {
+font-size: 16px;
+display: flex;
+position: relative;
+padding: 10px;
+margin-left: 15px;
+}
+
+.menu .link {
+width: 80px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+padding: 10px 15px;
+color: white;
+font-size: 16px;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+
+.menu .item {
+position: relative;
+}
+
+.menu .submenu {
+display: none;
+position: absolute;
+top: calc(100% + 10px);
+left: -40px;
+background-color: white;
+color: black;
+width: 150px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+z-index: 1000;
+text-align: center;
+}
+
+.menu .submenu-item {
+padding: 10px 20px;
+border-radius: 10px;
+text-decoration: none;
+color: black;
+font-size: 18px;
+cursor: pointer;
+}
+
+#fa-bars {
+color: green; /* Green color for the bars */
+background-color: white; /* White background */
+border-radius: 50%; /* Circular background */
+padding: 10px; /* Adjust as per the size you want */
+display: inline-block; /* Ensure it's inline and the circle wraps around */
+}
+
+#fa-bars:hover {
+background-color: green; /* Change the background color on hover */
+color: white; /* Change the text color on hover */
+}
+
+.menu .submenu-item:hover {
+background-color: green;
+color: white;
+}
+
+.menu:hover .submenu {
+display: block;
+}
+
+ul{
+margin: 20px; 
+}
+h1{
+margin: 20px;
+}
+table{
+margin: 20px;
+}
+hr{
+margin: 20px;
+}
+footer {
+background-color: #1e1e1e;
+color: #bbbbbb;
+padding: 40px 20px;
+text-align: left;
+}
+.footer-content {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+}
+.contact-container {
+width: 70%;
+}
+footer h1 {
+color: white;
+font-size: 2em;
+text-align: center; 
+margin-bottom: 20px;
+margin-left: 100px;
+}
+.contact-form {
+display: flex;
+flex-direction: column;
+width: 100%;
+text-align: left;
+}
+.contact-form label, .contact-form input, .contact-form textarea {
+width: 70%;
+margin-bottom: 10px;
+}
+.contact-form input, .contact-form textarea {
+padding: 10px;
+border: none;
+border-radius: 5px;
+background-color: #2e2e2e;
+color: white;
+}
+.contact-form textarea {
+resize: vertical;
+height: 100px;
+}
+.contact-form button {
+padding: 15px;
+border: none;
+border-radius: 5px;
+background-color: #275a34;
+color: white;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+.contact-form button:hover {
+background-color: #11df3e;
+}
+.contact-info {
+width: 600px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+text-align: center;
+color: #bbbbbb;
+margin-top: 100px;
+height: auto;
+font-size: larger;
+}
+.contact-info ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.contact-info ul li {
+margin-bottom: 15px;
+}
+.contact-info ul li i {
+margin-right: 10px;
+color: #00FF7F;
+}
+.social-icons {
+margin-top: 20px;
+}
+.social-icons a {
+color: #bbbbbb;
+margin: 0 10px;
+font-size: 24px;
+}
+.social-icons a:hover {
+color: #ffffff;
+}
+@media (max-width: 768px) {
+.nav-links {
+flex-direction: column;
+gap: 15px;
+margin-left: 0;
+}
+.nav-links a {
+font-size: 16px;
+}
+.hero {
+height: 500px;
+}
+.hero h1 {
+font-size: 2.5em;
+}
+.hero p {
+font-size: 1.2em;
+}
+.features .feature-container {
+flex-direction: column;
+gap: 20px;
+animation: none; 
+}
+.commodity-card {
+width: 100%;
+}
+.steps {
+flex-direction: column;
+gap: 30px;
+}
+}
+footer p {
+text-align: center;
+margin-top: 20px;
+color: #bbbbbb;
+}
+body {
+background-image:url(darkplant.jpg) ;
+background-size: cover; /* Ensures the image covers the entire screen */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat; /* Prevents the image from repeating */
+background-attachment: fixed; /* Keeps the background fixed during scrolling */
+
+}
+
+.details-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute items evenly */
+    gap: 20px; /* Space between items */
+}
+
+.details-container > details {
+    flex: 1 1 calc(50% - 20px); /* 50% width minus gap */
+    max-width: calc(50% - 20px); /* Ensures proper spacing */
+    box-sizing: border-box;
+}
+
+.details-container > details:last-of-type {
+    flex: 1 1 100%; /* Make the last element span the full width */
+    max-width: 100%; /* Full width */
+    text-align: center; /* Center text */
+}
+
+
+.commotab{
+max-width: 100%;
+margin: 0 auto; /* Center the table horizontally */
+text-align: center;
+margin-bottom: 20px;
+td{
+color: #fff;
+
+}
+}
+.commottab table {
+margin: 0 auto; /* Center the table itself */
+}
